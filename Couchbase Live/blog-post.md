@@ -82,5 +82,20 @@ WHERE t.type = "hotel"
   AND r.ratings.Overall > 3 LIMIT 5;
 ```
 
-From looking at the data in the Web UI, one can see that a hotel document had a nested array of reviews. Understanding how the **UNNEST** clause works, I can test out an idea around selecting an author's name for reviews of hotels where the **Overall** rating is greater than 4 (top reviews).
+From looking at the data in the Web UI, one can see that a hotel document had a nested array of reviews. Understanding how the **UNNEST** clause works, I can test out an idea around selecting an author's name for reviews of hotels where the **Overall** rating is greater than 4 (top reviews). You can get all sorts of good N1QL ideas from visiting our [N1QL Tutorial](https://query-tutorial.couchbase.com) and stepping through a few lessons (seen below).
 
+![](images/n1ql-tuotrial.png)
+
+## Persisting and Modifying Data
+
+Although the test-drive session is only 10 minutes long, it still leaves plenty of time to get in there and explore and play with retrieving, changing documents and sub-documents. Let's see a few more examples of that.
+
+After we start a test-drive, we can open up the Node JS **Sub-document Lokup** example which prints out the country of our airline with the key `airline_10`. We see that it is **"United States"**.
+
+Next we can open the **Sub-document Mutate** example which uses both the Lookup and Mutate methods. Together we can first run some code that mutate's just one portion of a document (country field) and in the same example retrieves that sub-document value after the nutation and prints the new value: **"Canada"** (shown below).
+
+![](images/sub-doc-mutate.png)
+
+We have many different potential uses for this technology and what you are seeing is just a preview of what this tool will grow to be. We have ideas from running documentation code samples to letting users build up their own favorite code snippets. But what we really need is feedback and ideas from users to help us understand how a tool like this could help you. Feel free to reach out to us on Twitter, our DM's are always open and let us know what you think.
+
+My name is Eric Bishard also know as [@httpJunkie](https://twitter.com/httpJunkie) on Twitter or you could reach out to our [@couchbaseDev](https://twitter.com/CouchbaseDev) account and ask us any questions you have related to developer experience at Couchbase.
