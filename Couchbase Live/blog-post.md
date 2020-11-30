@@ -113,7 +113,8 @@ Next, we can open the **Sub-document Mutate** example which uses both the Lookup
 
 We have many different potential uses for this technology and what you are seeing is just a preview of what this tool will grow to be. We have ideas from running documentation code samples to letting users build up their own favorite code snippets. But we need feedback and ideas from users to help us understand how a tool like this could help you. Feel free to reach out to us on Twitter, our DM's are always open and let us know what you think.
 
-Connecting to Our Instance from Our Own Environment
+## Connecting to Our Instance from Our Own Environment
+
 Creating a NodeJS project is one of the quickest ways to get up and running with Couchbase because you only need to have Node and an Integrated Development Environment set up to get started. So I will show you how to connect to a Couchbase.live session instance from code running on your own machine.
 
 First I will make a new directory on my machine and change directories into and initialize an npm project in my terminal:
@@ -214,6 +215,6 @@ Get Result:
 }
 ```
 
-
+Now we know that 
 
 My name is Eric Bishard also know as [@httpJunkie](https://twitter.com/httpJunkie) on Twitter or you could reach out to our [@couchbaseDev](https://twitter.com/CouchbaseDev) account and ask us any questions you have related to developer experience at Couchbase.
