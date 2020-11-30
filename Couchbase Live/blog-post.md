@@ -14,9 +14,14 @@ Once you select to start a test drive, you can log in with a username and passwo
 
 ![](images/console-login.png)
 
-This gives you access to a Couchbase Server instance, code can be run in several of the preferred SDKs. Like earlier stated, a test-drive will ensure that data is persisted from one execution to the next.
+This gives you access to a Couchbase Server instance, code can be run in several of the preferred SDKs. Like earlier stated, a test-drive will ensure that data is persisted from one execution to the next.'
 
 ![](images/session-info.png)
+
+Try using the query tab to run N1QL queries
+
+![](images/query-workbench.png)
+
 
 ## An Quick Tour around the UI
 
