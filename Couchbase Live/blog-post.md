@@ -22,6 +22,12 @@ Try using the query tab to run N1QL queries
 
 ![](images/query-workbench.png)
 
+N1QL query used in the example above:
+
+    SELECT h.name, h.city, h.state 
+    FROM `travel-sample` h 
+    WHERE h.type = 'hotel' 
+      AND h.city = 'Malibu' LIMIT 2;
 
 ## An Quick Tour around the UI
 
