@@ -113,4 +113,107 @@ Next, we can open the **Sub-document Mutate** example which uses both the Lookup
 
 We have many different potential uses for this technology and what you are seeing is just a preview of what this tool will grow to be. We have ideas from running documentation code samples to letting users build up their own favorite code snippets. But we need feedback and ideas from users to help us understand how a tool like this could help you. Feel free to reach out to us on Twitter, our DM's are always open and let us know what you think.
 
+Connecting to Our Instance from Our Own Environment
+Creating a NodeJS project is one of the quickest ways to get up and running with Couchbase because you only need to have Node and an Integrated Development Environment set up to get started. So I will show you how to connect to a Couchbase.live session instance from code running on your own machine.
+
+First I will make a new directory on my machine and change directories into and initialize an npm project in my terminal:
+
+```bash
+mkdir couchbase-test-drive && cd couchbase-test-drive && npm init -y
+```
+
+Next, install the Node Couchbase SDK package:
+
+```bash
+npm install couchbase
+```
+
+Create a .gitignore file and a file named server.js for our code
+
+```bash
+touch .gitignore && echo "/node_modules/" >> .gitignore && touch server.js
+```
+
+We can now open that `server.js` file in our code editor and insert the following code that will upsert and retrieve a document:
+
+```JavaScript
+const couchbase = require("couchbase");
+
+// replace the following URL and username and password with your own Couchbase.live credentials:
+const cluster = new couchbase.Cluster("http://cb-22596.couchbase.live:8091", {
+  username: "48d24cbe55bb4153",
+  password: "ad7be4557775f6ed",
+});
+
+const bucket = cluster.bucket("travel-sample");
+const collection = bucket.defaultCollection();
+
+const airline = {
+  type: "airline",
+  id: 8091,
+  callsign: "CBS",
+  iata: null,
+  icao: null,
+  name: "Couchbase Airways",
+};
+
+const upsertDocument = async (doc) => {
+  try {
+    // key will equal: "airline_8091"
+    const key = `${doc.type}_${doc.id}`;
+    const result = await collection.upsert(key, doc);
+    console.log("Upsert Result: ");
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+upsertDocument(airline);
+
+const getAirlineByKey = async (key) => {
+  try {
+    const result = await collection.get(key);
+    console.log("Get Result: ");
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+getAirlineByKey("airline_8091");
+```
+
+Save the file and run the following command in your terminal:
+
+```bash
+node server
+```
+
+The ouput from this file should be similar to:
+
+```bash
+Upsert Result:
+{
+  cas: CbCas { '0': <Buffer 00 00 13 13 f4 32 10 16> },
+  token: CbMutationToken {
+    '0': <Buffer cc 6d 45 09 c2 ce 00 00 2c 00 00 00 00 00 00 00 a9 03 00 00 00 00 00 00 74 72 61 76 65 6c 2d 73 61 6d 70 6c 65 00 00 00 50 6b bf ef fe 7f 00 00 28 2e ... 230 more bytes>
+  }
+}
+Get Result:
+{
+  cas: CbCas { '0': <Buffer 00 00 13 13 f4 32 10 16> },
+  value: {
+    type: 'airline',
+    id: 8091,
+    callsign: 'CBS',
+    iata: null,
+    icao: null,
+    name: 'Couchbase Airways'
+  }
+}
+```
+
+
+
 My name is Eric Bishard also know as [@httpJunkie](https://twitter.com/httpJunkie) on Twitter or you could reach out to our [@couchbaseDev](https://twitter.com/CouchbaseDev) account and ask us any questions you have related to developer experience at Couchbase.
