@@ -129,7 +129,7 @@ Next, install the Node Couchbase SDK package:
 npm install couchbase
 ```
 
-Create a .gitignore file and a file named server.js for our code
+Create a `.gitignore` file and a file named `server.js` for our code
 
 ```bash
 touch .gitignore && echo "/node_modules/" >> .gitignore && touch server.js
