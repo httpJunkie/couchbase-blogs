@@ -84,7 +84,7 @@ WHERE t.type = "hotel"
 
 From looking at the data in the Web UI, one can see that a hotel document had a nested array of reviews. Understanding how the **UNNEST** clause works, I can test out an idea around selecting an author's name for reviews of hotels where the **Overall** rating is greater than 4 (top reviews). You can get all sorts of good N1QL ideas from visiting our [N1QL Tutorial](https://query-tutorial.couchbase.com) and stepping through a few lessons (seen below).
 
-![](images/n1ql-tuotrial.png)
+![](images/n1ql-tutorial.png)
 
 ## Persisting and Modifying Data
 
